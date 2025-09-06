@@ -1,5 +1,5 @@
 const path =require("path");
-const HtmlWebpackPlugin = repuire('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.js",
@@ -27,19 +27,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./public/index.html",
+            template: "./src/index.html",
         })
     ],
     devServer: {
-        static: [
-            {
-                directory: path.join(__dirname, 'dist')
-            },
-            {
-                directory: path.join(__dirname, 'public'),
-                publicPath: '/'
-            }
-        ],
+        static: {
+            directory: path.join(__dirname, 'dist')
+        },
         compress: true,
         port: 3000        
     }   
